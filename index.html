@@ -5,9 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
     <link href="css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    
+    <style>
+      h1:after{
+        content: '|';
+        margin-left: 10px;
+        animation: digitando .75s infinite;
+      }
+
+      
+      @keyframes digitando
+      {
+        0%, 100%
+        {
+          opacity: 1;
+        }
+        50%
+        {
+          opacity: 0;
+        }
+      }
+    </style>
   </head>
   <body>
-    <h1 class="text-monospace font-weight-normal">Hello, my name is <span class="text-capitalize">otavio</span></h1>
+    <h1 class="header-content flex f-c-b" id="h1" data-aos="fade-right">Hello, my name is <span class="text-capitalize">otavio</span></h1>
     <blockquote class="blockquote text-right">
       <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed expedita earum error, aperiam, quos architecto consequuntur quibusdam hic suscipit tempora inventore incidunt dolores tenetur quod, animi temporibus adipisci! Ut, sint! Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae unde neque, similique eveniet quis id animi iure placeat, totam rem possimus. Eaque pariatur minus eos aliquid aliquam ducimus sint cupiditate.</p>
       <footer class="blockquote-footer">
@@ -25,5 +46,21 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+    
+  <script>
+    const titleHeader = document.getElementById('h1');
+    efeitoDigitar(titleHeader);
+    function efeitoDigitar(elemento)
+    {
+
+      const elementoLetras = elemento.innerText.split('');
+      elemento.innerText = '';
+
+      elementoLetras.forEach((letra, id) => {
+        setTimeout(() => { elemento.innerText += letra}, 100*id)
+      })
+    }
+
+  </script>
   </body>
 </html>
